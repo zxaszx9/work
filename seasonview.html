@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/season/logo/logo反.png" type="image/x-icon">
+  <script src="font/jquery-3.4.1.js"></script>
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>season</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    @font-face {
+      font-family: 'OldEnglishTextMT2';
+      src: url('font/OldEnglishTextMT2.woff') format("woff");
+    }
+
+    body {
+      background: #FFF;
+    }
+
+    /* media query */
+    @media (min-width: 600px) {
+      .menu,
+      .item,
+      .footer {
+        width: 50%;
+      }
+    }
+
+    @media (min-width: 800px) {
+      .header {
+        width: 60%;
+      }
+      .menu {
+        width: 40%;
+      }
+      .item {
+        width: 33%;
+      }
+      .footer {
+        width: 34%;
+      }
+    }
+
+    body {
+      background-color: #cae1ee;
+    }
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-flow: row wrap;
+    }
+    .header,
+    .footer {
+      width: 100%;
+    }
+    .header {
+      border-bottom: 5px solid #5b8097;
+    }
+
+    .menu {
+      width: 34%;
+      margin-right: 1%;
+      font-size: 25px;
+      display: none;
+    }
+    .menu table{
+      background-color: #8BD2C2;
+    }
+    .menu th{
+     font-weight: bold;
+     font-size: 30px;
+     color: #5b8097;
+     background-color: #86b8d4;
+    }
+
+    .item {
+      width: 64%;
+      margin-left: 1%;
+      background-color: #cae1ee;
+    }
+
+    .header span{
+      background-color: #cae1ee;
+      display: flex;
+      width: 100%;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+      border: none;
+    }
+    .logo{
+      filter:brightness(0.9);
+      margin-left: 38%;
+      width: 20%;
+    }
+    .logobtn{
+      justify-content: center;
+    }
+    .logobtn button{
+      color: rgb(112, 158, 121);
+      font-size: 25px;
+      font-weight: bold;
+      width: 15%;
+    }
+    .logomenu{
+      width: 30%;
+    }
+    button {
+      border: none;
+      background-color: #cae1ee;
+    }
+
+    table {
+      width: 100%;
+      border: 1px solid gray;
+      border-collapse: collapse;
+      border-spacing: 0;
+      text-align: center;
+    }
+
+    th,
+    td {
+      border: 1px solid #d0d0d0;
+      color: #89819c;
+      padding: 10px;
+    }
+
+    td {
+      background-color: #8BD2C2;
+      color: #fff;
+    }
+    .spring,.summer,.autumn,.winter{
+      width: 100%;
+      font-size: 40px;
+      margin: 1%;
+      font-family: 'OldEnglishTextMT2';
+      color:#db5280;
+    }
+    .summer{
+      color:#086d2d;
+    }
+    .autumn{
+      color:#bd5d37;
+    }
+    .winter{
+      color:#5928b6;
+    }
+    #spr table td{
+      font-family: "仿宋";
+      font-size: 20px;
+      background-color: #e47214;
+      color: #850731;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+    #summ table td{
+      font-family: "仿宋";
+      font-size: 23px;
+      background-color: #57af8f;
+      color: #043516;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+    #aut table td{
+      font-family: "仿宋";
+      font-size: 20px;
+      background-color: #dba87d;
+      color: #b9671b;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+     #wint table td{
+      font-family: "仿宋";
+      font-size: 20px;
+      background-color: #7a9adf;
+      color: #330a4e;
+      font-weight: bold;
+      border-radius: 10px;
+    }
+
+    #spr span,#summ span,#aut span,#wint span {
+      box-sizing: border-box;
+    }
+
+    .spring1,.spring2,.spring3,.spring4,
+    .summer1,.summer2,.summer3,.summer4, 
+    .autumn1,.autumn2,.autumn3,.autumn4,
+    .winter1,.winter2,.winter3,.winter4{
+      width: 48%;
+      margin: 1%;
+      border: none;
+    }
+
+    .spring:nth-child>table,
+    .summer:nth-child>table,
+    .autumn:nth-child>table,
+    .winter:nth-child>table {
+      width: 100%;
+    }
+
+    th img {
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      vertical-align: top;
+    }
+
+    td img {
+      width: 25%;
+      margin-right: 40%;
+      /* background-repeat:no-repeat; */
+      /* background-size:contain; */
+      /* vertical-align:top; */
+    }
+
+    th {
+      padding: 0;
+      padding-bottom: 0;
+    }
+    
+    #spr {
+      width: 100%;
+      flex-wrap: wrap;
+      display: flex;
+      display: none;
+    }
+
+    #summ {
+      width: 100%;
+      flex-wrap: wrap;
+      display: flex;
+      display: none;
+    }
+    
+    #aut {
+      width: 100%;
+      flex-wrap: wrap;
+      display: flex;
+      display: none;
+    }
+
+    #wint {
+      width: 100%;
+      flex-wrap: wrap;
+      display: flex;
+      display: none;
+    }
+
+    .footer {
+      background-color: #bfe6a6;
+      text-align: center;
+      font-size: 20px;
+      height: 30%;
+    }
+    .ui-dialog .ui-widget-header{
+      background: #8BD2C2;
+    }
+    #spr1 img,#spr2 img,#spr3 img,#spr4 img,
+    #sum1 img,#sum2 img,#sum3 img,#sum4 img,
+    #aut1 img,#aut2 img,#aut3 img,#aut4 img,
+    #win1 img,#win2 img,#win3 img,#win4 img{
+      vertical-align: middle;
+      float: left;
+      width: 40%;
+    }
+    .container1 {
+      max-width: 1080px;
+      margin: 0 auto;
+      display: flex;
+      flex-flow: row wrap;
+    }
+    #details{
+      width: 100%;
+      padding-bottom: 8%;
+    }
+    #order{
+      padding-bottom: 8%;
+      width: 100%;
+      text-align: center;
+    }
+    h1{
+      color: #0b5d91;
+      text-align: center;
+    }
+    #shoptable tr:nth-child(1) td{
+      background-color: #8faca8;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    #shopinfo{
+      background-color: #8faca8;
+      text-align: left;
+      padding: 3%;
+      border-radius: 5%;
+    }
+    #shopinfo input{
+      width: 90%;
+      margin: 2%;
+      padding: 1.5%;
+    }
+    textarea{
+      margin: 1.5%;
+      width: 91%;
+    }
+    input:valid{
+      border:2px solid green;
+    }
+    input:invalid{
+      border:2px solid red;
+    }
+    
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span><img class="logo" src="img/season/logo/logo-1.png" onclick="jumpfront()"></span>
+      <span class="logobtn">
+       <button onclick="jumpfront()">首頁</button>
+       <button onclick="clall()">所有種類</button>
+       <button onclick="jumplogin()">登入</button>
+      <button><img onclick="jumpshopping()" class="logomenu" src="img/season/logo/shopcar.png"></button></span>
+    </div>
+    <div class="menu"><table>
+        <tr><th>種類</th></tr>
+        <tr><td id="all" onclick="clall()">全部</td></tr>
+        <tr><td id="springId" onclick="springBtn()">春</td></tr>
+        <tr><td id="summerId" onclick="summerBtn()">夏</td></tr>
+        <tr><td id="autumnId" onclick="autumnBtn()">秋</td></tr>
+        <tr><td id="winterId" onclick="winterBtn()">冬</td></tr>
+      </table></div>
+    <div class="item">
+       <div id="spr">
+        <div class="spring">SPRING</div>
+        <span class="spring1"><table>
+            <tr><th colspan="2"><img src="img/season/報春花.jpg"></th></tr>
+            <tr><td colspan="2">報春花</td></tr>
+            <tr><td><img id="spr01" src="img/season/logo/shopbasket.png"></td><td>655</td></tr>
+             <div id="spr1" title="報春花">
+              <img src="img/season/報春花.jpg">
+              <p>被稱為春天的使者，每年在春季2～5月時開花，花朵顏色繁多，夏季時花朵凋謝成泥</p>           
+              <p>花語：初戀、快樂、悲傷和不悔、精力充沛(白色報春花)</p>
+              &nbsp;<span style="color: red;">單價：655元</span>&nbsp;&nbsp;&nbsp;
+              數量：<input id="spr001" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="報春花" value="訂購" onclick="confirm(this)">
+             </div>
+          </table></span>
+        <span class="spring2"><table>
+            <tr><th colspan="2"><img src="img/season/桃花.jpg"></th></tr>
+            <tr><td colspan="2">桃花</td></tr>
+            <tr><td><img id="spr02" src="img/season/logo/shopbasket.png"></td><td>888</td></tr>
+            <div id="spr2" title="桃花">
+              <img src="img/season/桃花.jpg">
+              <p>每年3月上旬左右桃花開始盛開進入盛花期，3月下旬後，花開始慢慢凋謝，進入惜花期</p>           
+              <p>花語：愛情的俘虜</p>
+              &nbsp;<span style="color: red;">單價：888元</span>&nbsp;&nbsp;&nbsp;
+              數量：<input id="spr002" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="桃花" value="訂購" onclick="confirm(this)">
+             </div>
+          </table></span>
+        <span class="spring3"><table>
+            <tr><th colspan="2"><img src="img/season/櫻花.jpg"></th></tr>
+            <tr><td colspan="2">櫻花</td></tr>
+            <tr><td><img id="spr03" src="img/season/logo/shopbasket.png"></td><td>1299</td></tr>
+            <div id="spr3" title="櫻花">
+              <img src="img/season/櫻花.jpg">
+              <p>多數在3月下旬至四月上旬開花，通常在初開（開花）後一星期便會盛開（滿開），再過一星期，盛開尖峰就過了，花瓣就開始凋零</p>           
+              <p>花語:生命、熱烈、純潔、高尚、東方的神秘、幸福、文靜、青春、純潔、高尚、淡薄、精神之美、向你微笑</p>
+              &nbsp;<span style="color: red;">單價：1299元</span>&nbsp;&nbsp;&nbsp;
+              數量：<input id="spr003" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="櫻花" value="訂購" onclick="confirm(this)">
+             </div>
+          </table></span>
+        <span class="spring4"><table>
+            <tr><th colspan="2"><img src="img/season/牡丹.jpg"></th>
+            </tr><tr><td colspan="2">牡丹</td></tr>
+            <tr><td><img id="spr04" src="img/season/logo/shopbasket.png"></td><td>1200</td></tr>
+            <div id="spr4" title="牡丹">
+              <img src="img/season/牡丹.jpg">
+              <p>牡丹花的花型寬厚，被稱為百花之王，開花期通常是每年春天四月左右，每年只開一次花，花不會持續十天，可以通過控制溫度促進花朵在秋季和冬季開放</p>           
+              <p>花語：寓意圓滿、濃情、雍華富貴</p>
+              &nbsp;<span style="color: red;">單價：1200元</span>&nbsp;&nbsp;&nbsp;
+              數量：<input id="spr004" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="牡丹" value="訂購" onclick="confirm(this)">
+             </div>
+          </table></span>
+       </div>
+       <div id="summ">
+        <div class="summer">SUMMER</div>
+        <span class="summer1"><table>
+          <tr><th colspan="2"><img src="img/season/茉莉.jpg"></th></tr>
+          <tr><td colspan="2">茉莉</td></tr>
+          <tr><td><img id="sum01" src="img/season/logo/shopbasket.png"></td><td>499</td></tr>
+          <div id="sum1" title="茉莉">
+            <img src="img/season/茉莉.jpg">
+            <p>在每年的5～8月開花，開出來的花朵和梔子差不多，花朵的顏色都是白的，在夏季時需擺放在半陰半陽處養護，要每天適量澆水</p>           
+            <p>花語:親切、猜忌、成熟美、膽小、臆測、你是我的生命</p>
+            &nbsp;<span style="color: red;">單價：499元</span>&nbsp;&nbsp;&nbsp;
+            數量：<input id="sum001" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="茉莉" value="訂購" onclick="confirm(this)">
+           </div>
+        </table></span>
+      <span class="summer2"><table>
+          <tr><th colspan="2"><img src="img/season/六月雪.jpg"></th></tr>
+          <tr><td colspan="2">六月雪</td></tr>
+          <tr><td><img id="sum02" src="img/season/logo/shopbasket.png"></td><td>499</td></tr>
+          <div id="sum2" title="六月雪">
+            <img src="img/season/六月雪.jpg">
+            <p>開出來的花朵小但十分密集且花朵是白色的，花期一般在春夏5～7月開花，在夏季時花朵開的最為茂盛</p>           
+            <p>花語:不可缺的配角、喜歡、關心、思戀、喜悅、守望愛情，象徵純潔、夢境</p>
+            &nbsp;<span style="color: red;">單價：499元</span>&nbsp;&nbsp;&nbsp;
+            數量：<input id="sum002" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="六月雪" value="訂購" onclick="confirm(this)">
+           </div>
+        </table></span>
+      <span class="summer3"><table>
+          <tr><th colspan="2"><img src="img/season/向日葵.jpg"></th></tr>
+          <tr><td colspan="2">向日葵</td></tr>
+          <tr><td><img id="sum03" src="img/season/logo/shopbasket.png"></td><td>399</td></tr>
+          <div id="sum3" title="向日葵">
+            <img src="img/season/向日葵.jpg">
+            <p>常被喻為太陽花，是夏季最具代表性的花朵之一，大約在每年5～10月之間開花，盛開的花季則落在7、8月</p>           
+            <p>花語:太陽、勇敢追求自己想要的幸福</p>
+            &nbsp;<span style="color: red;">單價：399元</span>&nbsp;&nbsp;&nbsp;
+            數量：<input id="sum003" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="向日葵" value="訂購" onclick="confirm(this)">
+           </div>
+        </table></span>
+      <span class="summer4"><table>
+          <tr><th colspan="2"><img src="img/season/荷花.jpg"></th>
+          </tr><tr><td colspan="2">荷花</td></tr>
+          <tr><td><img id="sum04" src="img/season/logo/shopbasket.png"></td><td>399</td></tr>
+          <div id="sum4" title="荷花">
+            <img src="img/season/荷花.jpg">
+            <p>荷花的花期一般為6月至9月，不同品種和育種區域可能導致開花時間略有不同，每朵花的開花期可持續2-3天左右，基本上從早上6-8點開始，然後中午關閉，等待第二天早上，花期一過，花兒就會凋謝，枝頭就會變黃</p>           
+            <p>花語:清白、堅貞純潔、忠貞、愛情、孤傲、冰清玉潔、自由脫俗、懷念、戀情的喜悅</p>
+            &nbsp;<span style="color: red;">單價：399元</span>&nbsp;&nbsp;&nbsp;
+            數量：<input id="sum004" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="荷花" value="訂購" onclick="confirm(this)">
+           </div>
+        </table></span>
+       </div>
+       <div id="aut">
+          <div class="autumn">AUTUMN</div>
+          <span class="autumn1"><table>
+              <tr><th colspan="2"><img src="img/season/孔雀草.jpg"></th></tr>
+              <tr><td colspan="2">孔雀草</td></tr>
+              <tr><td><img id="aut01" src="img/season/logo/shopbasket.png"></td><td>299</td></tr>
+              <div id="aut1" title="孔雀草">
+                <img src="img/season/孔雀草.jpg">
+                <p>一種菊科類一年生的草本植物，花形鮮艷美麗，花期在7～9月，秋季的溫暖濕潤環境可使植株生長迅速，是觀賞盆景最佳花種，而且還具有很好的藥用功效</p>           
+                <p>花語:象徵爽朗、活潑、興高采烈、愛的契約</p>
+                &nbsp;<span style="color: red;">單價：299元</span>&nbsp;&nbsp;&nbsp;
+                數量：<input id="aut001" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="孔雀草" value="訂購" onclick="confirm(this)">
+               </div>
+            </table></span>
+          <span class="autumn2"><table>
+              <tr><th colspan="2"><img src="img/season/菊花.jpg"></th></tr>
+              <tr><td colspan="2">菊花</td></tr>
+              <tr><td><img id="aut02" src="img/season/logo/shopbasket.png"></td><td>299</td></tr>
+              <div id="aut2" title="菊花">
+                <img src="img/season/菊花.jpg">
+                <p>一種多年生草本植物，有極大的多樣性，喜歡溫暖濕潤的氣候環境下生長，耐陰涼，適宜溫度在20度左右，一般是在每年的5月或者9月開花一次，其中的秋菊是栽培最為普遍的品種/p>           
+                <p>花語:清淨、高潔、我愛你、真情</p>
+                &nbsp;<span style="color: red;">單價：299元</span>&nbsp;&nbsp;&nbsp;
+                數量：<input id="aut002" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="菊花" value="訂購" onclick="confirm(this)">
+               </div>
+            </table></span>
+          <span class="autumn3"><table>
+              <tr><th colspan="2"><img src="img/season/桂花.jpg"></th></tr>
+              <tr><td colspan="2">桂花</td></tr>
+              <tr><td><img id="aut03" src="img/season/logo/shopbasket.png"></td><td>655</td></tr>
+              <div id="aut3" title="桂花">
+                <img src="img/season/桂花.jpg">
+                <p>花期全年，盛花期為8月，因此有「八月桂花香」之稱。而在四季如春的台灣因環境實在太適合它的生長，並且栽植的大多為四季桂，所以無須等到八月，整年皆有桂花飄香</p>           
+                <p>花語:象徵吉祥、富貴、美好、光榮、永伴佳人</p>
+                &nbsp;<span style="color: red;">單價：655元</span>&nbsp;&nbsp;&nbsp;
+                數量：<input id="aut003" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="桂花" value="訂購" onclick="confirm(this)">
+               </div>
+            </table></span>
+          <span class="autumn4"><table>
+              <tr><th colspan="2"><img src="img/season/銀杏.jpg"></th>
+              </tr><tr><td colspan="2">銀杏</td></tr>
+              <tr><td><img id="aut04" src="img/season/logo/shopbasket.png"></td><td>499</td></tr>
+              <div id="aut4" title="銀杏">
+                <img src="img/season/銀杏.jpg">
+                <p>生長迅速、適應性強，樹形優美，夏季葉色嫩綠、秋冬季黃色非常美觀，是優良的行道樹與庭園樹，為中生代孑遺的稀有樹種，是裸子植物銀杏門唯一現存物種，譽為植物界的活化石</p>           
+                <p>花語:堅韌、純情、永恆的愛</p>
+                &nbsp;<span style="color: red;">單價：499元</span>&nbsp;&nbsp;&nbsp;
+                數量：<input id="aut004" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="銀杏" value="訂購" onclick="confirm(this)">
+               </div>
+            </table></span>
+       </div>
+       <div id="wint">
+          <div class="winter">WINTER</div>
+          <span class="winter1"><table>
+              <tr><th colspan="2"><img src="img/season/梅花.jpg"></th></tr>
+              <tr><td colspan="2">梅花</td></tr>
+              <tr><td><img id="win01" src="img/season/logo/shopbasket.png"></td><td>599</td></tr>
+              <div id="win1" title="梅花">
+                <img src="img/season/梅花.jpg">
+                <p>薔薇科植物，每年從12月下旬起到隔年1月為盛開季節</p>           
+                <p>古人說:梅具四德，初生蕊為元，開花為亨，結子為利，成熟為貞;後人說:梅花五瓣為五福，象徵快樂、幸運、長壽、順利、太平</p>
+                &nbsp;<span style="color: red;">單價：599元</span>&nbsp;&nbsp;&nbsp;
+                數量：<input id="win001" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="梅花" value="訂購" onclick="confirm(this)">
+               </div>
+            </table></span>
+          <span class="winter2"><table>
+              <tr><th colspan="2"><img src="img/season/聖誕紅.jpg"></th></tr>
+              <tr><td colspan="2">聖誕紅</td></tr>
+              <tr><td><img id="win02" src="img/season/logo/shopbasket.png"></td><td>399</td></tr>
+              <div id="win2" title="聖誕紅">
+                <img src="img/season/聖誕紅.jpg">
+                <p>又名為一品紅、聖誕花，全株有毒，大戟科大戟屬植物，大紅大綠的葉片相間，充滿聖誕節氣氛，因而稱為聖誕紅。紅色部份其實是苞葉而真正的花是在葉束中間的部份</p>           
+                <p>花語:祝福、我的心在燃燒</p>
+                &nbsp;<span style="color: red;">單價：399元</span>&nbsp;&nbsp;&nbsp;
+                數量：<input id="win002" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="聖誕紅" value="訂購" onclick="confirm(this)">
+               </div>
+            </table></span>
+          <span class="winter3"><table>
+              <tr><th colspan="2"><img src="img/season/水仙.jpg"></th></tr>
+              <tr><td colspan="2">水仙</td></tr>
+              <tr><td><img id="win03" src="img/season/logo/shopbasket.png"></td><td>199</td></tr>
+              <div id="win3" title="水仙">
+                <img src="img/season/水仙.jpg">
+                <p>喜寒怕熱，開花後則要求更低，溫度低花期長，反之則短，花期約為10天至20天，只要有一定的低溫環境，便可有效地延長花期</p>           
+                <p>花語:愛你、期盼愛情、純潔、美好時光、敬意</p>
+                &nbsp;<span style="color: red;">單價：199元</span>&nbsp;&nbsp;&nbsp;
+                數量：<input id="win003" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="水仙" value="訂購" onclick="confirm(this)">
+               </div>
+            </table></span>
+          <span class="winter4"><table>
+              <tr><th colspan="2"><img src="img/season/蠟梅1.jpg"></th>
+              </tr><tr><td colspan="2">蠟梅</td></tr>
+              <tr><td><img id="win04" src="img/season/logo/shopbasket.png"></td><td>499</td></tr>
+              <div id="win4" title="蠟梅">
+                <img src="img/season/蠟梅.jpg">
+                <p>性喜陽光，能耐蔭、耐寒、耐旱，忌漬水，花黃似臘，濃香撲鼻，是冬季觀賞主要花木。蠟梅並非梅類，兩者親緣甚遠，在植物分類學上，蠟梅屬蠟梅科，落葉灌木，又名雪裡花，一般在11月中旬開花直到次年3月左右，花期很長</p>           
+                <p>花語:高風亮節、傲氣凌人、澄澈的心、浩然正氣、慈愛之心、高尚心靈、獨立、堅毅、忠貞、剛強</p>
+                &nbsp;<span style="color: red;">單價：499元</span>&nbsp;&nbsp;&nbsp;
+                數量：<input id="win004" type="text" style="width: 50px;">束&nbsp;&nbsp;<input type="button" id="蠟梅" value="訂購" onclick="confirm(this)">
+               </div>
+            </table></span>
+       </div>
+    </div>
+    <div class="container1">
+      <div id="details">
+        <h1>購物清單</h1>
+        <table id="shoptable">
+          <tr>
+            <td>品名</td>
+            <td>數量</td>
+            <td>單價</td>
+            <td>小計</td>
+            <td></td>
+          </tr>
+          <tr class="sum">
+            <td>Total</td>
+            <td id="tot" colspan="4"></td>
+          </tr>
+        </table>
+      </div>
+      <div id="order">
+        <h1>訂單資訊</h1>
+        <div id="shopinfo">
+         <form action="">
+           Email*<br><input id="ema" type="email" placeholder="請輸入 Email" required><br>
+           收件人姓名*<br><input type="text" placeholder="輸入姓名" required><br>
+           收件人電話*<a id="phone" style="color: red; font-weight: bold;"></a><input id="emcell" type="text" placeholder="請輸入電話" required><br>
+           收件人地址*<br><input type="text" placeholder="請輸入地址" required><br>
+           備註<br><textarea rows="10" cols="40"></textarea><br>
+           <input id="button" onclick="inputinfo()" type="submit" value="送出訂單" style="width: 100px; font-size: 16px; border-radius: 10px;background-color: #a0d1dd; margin-left: 78%;">
+         </form>
+       </div>
+      </div>
+    </div>
+    <div class="footer">資料、圖片、文章來源皆來自網路，僅做為學習用途。</div>
+
+<script>
+ $(function () {
+        $('.menu tr td').mouseenter(function (event){
+          $(this).css("text-decoration","underline");
+        })
+        $('.menu tr td').mouseleave(function (event){
+          $(this).css("text-decoration","none");
+        })
+        $('.logobtn button').mouseenter(function (event){
+          $(this).css("text-decoration","underline");
+        })
+        $('.logobtn button').mouseleave(function (event){
+          $(this).css("text-decoration","none");
+        })
+        $( "#spr1" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#spr01").click(function() {$("#spr1").dialog("open")});
+        $( "#spr2" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#spr02").click(function() {$("#spr2").dialog("open")});
+        $( "#spr3" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#spr03").click(function() {$("#spr3").dialog("open")});
+        $( "#spr4" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#spr04").click(function() {$("#spr4").dialog("open")});
+
+        $( "#sum1" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#sum01").click(function() {$("#sum1").dialog("open")});
+        $( "#sum2" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#sum02").click(function() {$("#sum2").dialog("open")});
+        $( "#sum3" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#sum03").click(function() {$("#sum3").dialog("open")});
+        $( "#sum4" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#sum04").click(function() {$("#sum4").dialog("open")});
+
+        $( "#aut1" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#aut01").click(function() {$("#aut1").dialog("open")});
+        $( "#aut2" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#aut02").click(function() {$("#aut2").dialog("open")});
+        $( "#aut3" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#aut03").click(function() {$("#aut3").dialog("open")});
+        $( "#aut4" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#aut04").click(function() {$("#aut4").dialog("open")});
+
+        $( "#win1" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#win01").click(function() {$("#win1").dialog("open")});
+        $( "#win2" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#win02").click(function() {$("#win2").dialog("open")});
+        $( "#win3" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#win03").click(function() {$("#win3").dialog("open")});
+        $( "#win4" ).dialog({
+          autoOpen:false,width: 750,modal: true,resizable: false,draggable: false});
+        $("#win04").click(function() {$("#win4").dialog("open")});
+        
+
+ })
+ function jumpfront() {
+      window.location.href = "seasonFront.html";
+    }
+ function jumplogin() {
+      window.location.href = "seasonLogin.html";
+    }
+ function jumpshopping() {
+      // window.location.href = "seasonShopping.html";
+      document.getElementsByClassName('menu')[0].style.display ="none";
+ }
+    
+  function clall(){
+    document.getElementById('all').setAttribute('style', 'color:#5b8097');
+    document.getElementById('all').style.setProperty('background-color',"#57a999");
+    document.getElementById('spr').style.display = "flex";
+    document.getElementById('spr').style.width = "100%";
+    document.getElementById('summ').style.display = "flex";
+    document.getElementById('summ').style.width = "100%";
+    document.getElementById('aut').style.display = "flex";
+    document.getElementById('aut').style.width = "100%";
+    document.getElementById('wint').style.display = "flex";
+    document.getElementById('wint').style.width = "100%";
+    document.getElementById('springId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('summerId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('autumnId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('winterId').removeAttribute('style', 'color:#5b8097');
+  }
+  function springBtn(){
+    document.getElementById('springId').setAttribute('style', 'color:#5b8097');
+    document.getElementById('springId').style.setProperty('background-color',"#57a999");
+    document.getElementById('spr').style.display = "flex";
+    document.getElementById('spr').style.width = "100%";
+    document.getElementById('summ').style.display = "none";
+    document.getElementById('aut').style.display = "none";
+    document.getElementById('wint').style.display = "none";
+    document.getElementById('all').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('summerId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('autumnId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('winterId').removeAttribute('style', 'color:#5b8097');
+  }
+  function summerBtn(){
+    document.getElementById('summerId').setAttribute('style', 'color:#5b8097');
+    document.getElementById('summerId').style.setProperty('background-color',"#57a999");
+    document.getElementById('spr').style.display = "none";
+    document.getElementById('summ').style.display = "flex";
+    document.getElementById('summ').style.width = "100%";
+    document.getElementById('aut').style.display = "none";
+    document.getElementById('wint').style.display = "none";
+    document.getElementById('all').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('springId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('autumnId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('winterId').removeAttribute('style', 'color:#5b8097');
+  }
+  function autumnBtn(){
+    document.getElementById('autumnId').setAttribute('style', 'color:#5b8097');
+    document.getElementById('autumnId').style.setProperty('background-color',"#57a999");
+    document.getElementById('spr').style.display = "none";
+    document.getElementById('summ').style.display = "none";
+    document.getElementById('aut').style.display = "flex";
+    document.getElementById('aut').style.width = "100%";
+    document.getElementById('wint').style.display = "none";
+    document.getElementById('all').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('springId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('summerId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('winterId').removeAttribute('style', 'color:#5b8097');
+  }
+  function winterBtn(){
+    document.getElementById('winterId').setAttribute('style', 'color:#5b8097');
+    document.getElementById('winterId').style.setProperty('background-color',"#57a999");
+    document.getElementById('spr').style.display = "none";
+    document.getElementById('summ').style.display = "none";
+    document.getElementById('aut').style.display = "none";
+    document.getElementById('wint').style.display = "flex";
+    document.getElementById('wint').style.width = "100%";
+    document.getElementById('all').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('springId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('summerId').removeAttribute('style', 'color:#5b8097');
+    document.getElementById('autumnId').removeAttribute('style', 'color:#5b8097');
+  }
+ 
+  function check() {
+   if (emcell.value.length != 10 || isNaN(emcell.value) == true) {
+    document.getElementById('phone').innerHTML = "請輸入十碼手機號碼";
+    document.getElementById('emcell').style.border = "2px solid red";
+   }
+  }
+  function inputinfo() {
+    check();
+  }
+
+
+
+  function confirm(my) {
+  var ro = document.getElementById('shoptable');
+  var rownum = ro.getElementsByTagName('tr').length;
+  var row = document.getElementById("shoptable").insertRow(rownum-1);
+  var cell1 = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  cell1.innerHTML = my.id;
+
+switch (my.id) {
+  case "報春花":
+   cell2.innerHTML = document.getElementById("spr001").value;
+   cell3.innerHTML = 655;
+   document.getElementById('spr001').value='';
+   break;
+  case "桃花":
+   cell2.innerHTML = document.getElementById("spr002").value;
+   cell3.innerHTML = 888; 
+   document.getElementById('spr002').value='';
+   break;
+  case "櫻花":
+   cell2.innerHTML = document.getElementById("spr003").value;
+   cell3.innerHTML = 1299; 
+   document.getElementById('spr003').value='';
+   break;
+  case "牡丹":
+   cell2.innerHTML = document.getElementById("spr004").value;
+   cell3.innerHTML = 1200;
+   document.getElementById('spr004').value='';
+   break;
+  case "茉莉":
+   cell2.innerHTML = document.getElementById("sum001").value;
+   cell3.innerHTML = 499;
+   document.getElementById('sum001').value='';
+   break;
+  case "六月雪":
+   cell2.innerHTML = document.getElementById("sum002").value;
+   cell3.innerHTML = 499;
+   document.getElementById('sum002').value='';
+   break;
+  case "向日葵":
+   cell2.innerHTML = document.getElementById("sum003").value;
+   cell3.innerHTML = 399;
+   document.getElementById('sum003').value='';
+   break;
+  case "荷花":
+   cell2.innerHTML = document.getElementById("sum004").value;
+   cell3.innerHTML = 399; 
+   document.getElementById('sum004').value='';
+   break;
+  case "孔雀草":
+   cell2.innerHTML = document.getElementById("aut001").value;
+   cell3.innerHTML = 299; 
+   document.getElementById('aut001').value='';
+   break;
+  case "菊花":
+   cell2.innerHTML = document.getElementById("aut002").value;
+   cell3.innerHTML = 299; 
+   document.getElementById('aut002').value='';
+   break;
+  case "桂花":
+   cell2.innerHTML = document.getElementById("aut003").value;
+   cell3.innerHTML = 655; 
+   document.getElementById('aut003').value='';
+   break;
+  case "銀杏":
+   cell2.innerHTML = document.getElementById("aut004").value;
+   cell3.innerHTML = 499; 
+   document.getElementById('aut004').value='';
+   break;
+  case "梅花":
+   cell2.innerHTML = document.getElementById("win001").value;
+   cell3.innerHTML = 599; 
+   document.getElementById('win001').value='';
+   break;
+  case "聖誕紅":
+   cell2.innerHTML = document.getElementById("win002").value;
+   cell3.innerHTML = 399; 
+   document.getElementById('win002').value='';
+   break;
+   case "蠟梅":
+   cell2.innerHTML = document.getElementById("win004").value;
+   cell3.innerHTML = 499; 
+   document.getElementById('win004').value='';
+   break;
+  case "水仙":
+   cell2.innerHTML = document.getElementById("win003").value;
+   cell3.innerHTML = 199;
+   document.getElementById('win003').value='';
+   break;
+  
+  default: 
+   cell2.innerHTML = 0;
+   cell3.innerHTML = 0;
+   break;
+}
+  cell4.innerHTML = (cell2.innerHTML)*(cell3.innerHTML);
+  cell5.innerHTML = "<input type='button' value='刪除' onclick='del(this)'>";
+  
+  var total = 0;
+  for (var i = 1; i < rownum; i++) {
+  var totnum = shoptable.rows[i].cells[3].innerText;
+       if(totnum!=""){
+          total=parseInt(total)+parseInt(totnum);}
+    }
+    document.getElementById("tot").innerText = total;
+}
+
+function del(b){
+  var j=b.parentNode.parentNode.rowIndex;  
+  var delnum = parseInt(shoptable.rows[j].cells[3].innerText);
+  document.getElementById('shoptable').deleteRow(j);
+  var x = document.getElementById("tot").innerHTML;
+  document.getElementById("tot").innerHTML = x-delnum;
+}
+</script>
+
+
+</body>
+
+</html>

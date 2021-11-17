@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/season/logo/logo反.png" type="image/x-icon">
+  <script src="font/jquery-3.4.1.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>season</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    #front {
+      width: 100%;
+    }
+    #con {
+      display: none;
+      position: absolute;
+      top: 20%;
+      width: 25%;
+      text-align: center;
+      left: 35%;
+    }
+
+    .imgGroup {
+      position: relative;
+      display: inline-block;
+    }
+    .imgGroup:hover #front{
+      opacity: 0.6;
+    }
+    .imgGroup:hover #con{
+      display: block;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="imgGroup">
+    <img id="front" src="img/season/01.jpg" alt="">
+    <img id="con" src="img/season/logo/logo-1.png" onclick="jumpmenu()">
+  </div>
+  <script>
+    function jumpmenu() {
+      window.location.href = "seasonMiddle.html";
+    }
+    $(function () {
+      function random() {
+        return Math.floor(Math.random() * 7 + 1);
+      }
+      setInterval(function () {
+        $('#front').attr('src', `img/season/0${random()}.jpg`)
+      }, 2000);
+
+    })
+  </script>
+</body>
+
+</html>

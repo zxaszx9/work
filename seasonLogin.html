@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script src="font/jquery-3.4.1.js"></script>
+  <link rel="icon" href="img/season/logo/logo反.png" type="image/x-icon">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>season</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-repeat: no-repeat;
+      background-image: url('img/season/season-bg1.jpg');
+      background-size: 100% auto;
+    }
+
+    table {
+      opacity: 0.85;
+      background-color: white;
+      width: 25%;
+      table-layout: fixed;
+      margin-top: 8%;
+      margin-left: 35%;
+      font-size: 18px;
+      box-shadow: 2px 2px 2px 2px hsl(0, 8%, 73%);
+    }
+
+    .mem {
+      font-size: 22px;
+      font-weight: bold;
+      padding: 3%;
+      border-bottom: 3px solid #8BD2C2;
+    }
+
+    tr td img {
+      width: 13%;
+      margin-left: 2%;
+      padding: 4%;
+    }
+
+    tr td {
+      padding: 2%;
+    }
+
+    .ep {
+      font-size: 15px;
+      padding: 2%;
+      width: 80%;
+    }
+
+    #inp {
+      color: #fff;
+      background-color: #8BD2C2;
+      border: none;
+      width: 100%;
+      padding: 3%;
+      font-size: 20px;
+    }
+
+    .oth {
+      position: relative;
+      text-align: center;
+    }
+
+    .oth::before,
+    .oth::after {
+      content: "";
+      position: absolute;
+      background: #8BD2C2;
+      width: 37%;
+      height: 1px;
+      top: 50%;
+    }
+
+    .oth::before {
+      left: 3%;
+    }
+
+    .oth::after {
+      right: 3%;
+    }
+
+    input:valid {
+      border: 2px solid green;
+    }
+
+    input:invalid {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+
+<body>
+  <form>
+    <table>
+      <tr>
+        <td class="mem">會員登入</td>
+      </tr>
+      <tr>
+        <td>帳號</td>
+      </tr>
+      <tr>
+        <td><input id="account" class="ep" type="account" name="account" required></td>
+      </tr>
+      <tr>
+        <td>密碼</td>
+      </tr>
+      <tr>
+        <td><input id="password" class="ep" type="password" name="password" required></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox">記住我</td>
+      </tr>
+      <tr>
+        <td><input id="inp" type="submit" value="登入"onclick="jumpMiddle()"></td>
+      </tr>
+  </form>
+  <tr>
+    <td class="oth">其他</td>
+  </tr>
+  <tr>
+    <td>
+      <img class="img1" src="img/season/logo/fb.png" alt="fb">
+      <img class="img2" src="img/season/logo/google.png" alt="google">
+      <img class="img3" src="img/season/logo/line.png" alt="line">
+      <img class="img4" src="img/season/logo/ig.png" alt="ig">
+    </td>
+  </tr>
+  </table>
+  <script>
+  $('#inp').click(function(){
+    $.ajax({
+				url:'http://localhost:8080/java/Login',
+				dataType:'json',
+        data:{
+          account: $('#account').val(),
+          password:$('#password').val()
+        },
+				type:'post',
+				timeout:2000,
+				success:function(){
+          window.location.href = "seasonMiddle.html";            
+				},
+				error:function(XMLHttpRequest,textStatus,errorThrown){
+					if(textStatus==='timeout'){
+						alert('請求超時');
+						setTimeout(function(){
+							alert('重新請求');
+						},2000);
+					}
+				}
+			})
+		})
+  </script>
+</body>
+
+</html>

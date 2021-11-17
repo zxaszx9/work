@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>WordClock</title>
+  <style>
+    body {
+      font-size: 72px;
+      align-items: center;
+      text-align: center;
+    }
+
+    th {
+      border-top: 7.5px solid black;
+      border-bottom: 7.5px solid black;
+      right: 5000px;
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0.1px;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <table rules="rows">
+      <tr>
+        <th>WORLD </th>
+        <th>CLOCK</th>
+      </tr>
+      <tr id="ny">
+        <td>NEW YORK<br>
+          <p class="day1"></p>
+        </td>
+        <td id="time1"></td>
+      </tr>
+      <tr id="ld">
+        <td>LONDON<br>
+          <p class="day2"></p>
+        </td>
+        <td id="time2"></td>
+      </tr>
+      <tr id="bk">
+        <td>BANGKOK<br>
+          <p class="day3"></p>
+        </td>
+        <td id="time3"></td>
+      </tr>
+      <tr id="tw">
+        <td>TAIWAN<br>
+          <p class="day4"></p>
+        </td>
+        <td id="time4"></td>
+      </tr>
+      <tr id="sn">
+        <td>SYDNEY<br>
+          <p class="day5"></p>
+        </td>
+        <td id="time5"></td>
+      </tr>
+    </table>
+  </div>
+  <script>
+    setInterval(zone, 1000);
+    function zone() {
+      var newYorkTime = new Date().toLocaleString('en-us', { timeZone: 'America/New_York', hour12: false });
+      var lonDonTime = new Date().toLocaleString('en-us', { timeZone: 'Europe/London', hour12: false });
+      var bangKokTime = new Date().toLocaleString('en-us', { timeZone: 'Asia/Bangkok', hour12: false });
+      var taiWanTime = new Date().toLocaleString('en-us', { timeZone: 'Asia/Taipei', hour12: false });
+      var syDneyTime = new Date().toLocaleString('en-us', { timeZone: 'Australia/Sydney', hour12: false });
+
+      var monthEng = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+
+      var str1 = newYorkTime.split(',');
+      var str2 = lonDonTime.split(',');
+      var str3 = bangKokTime.split(',');
+      var str4 = taiWanTime.split(',');
+      var str5 = syDneyTime.split(',');
+      var hr1 = newYorkTime.split(',')[1].slice(1, 3) + '';
+      var hr2 = lonDonTime.split(',')[1].slice(1, 3) + '';
+      var hr3 = bangKokTime.split(',')[1].slice(1, 3) + '';
+      var hr4 = taiWanTime.split(',')[1].slice(1, 3) + '';
+      var hr5 = syDneyTime.split(',')[1].slice(1, 3) + '';
+      var min1 = newYorkTime.split(',')[1].slice(4, 6) + '';
+      var min2 = lonDonTime.split(',')[1].slice(4, 6) + '';
+      var min3 = bangKokTime.split(',')[1].slice(4, 6) + '';
+      var min4 = taiWanTime.split(',')[1].slice(4, 6) + '';
+      var min5 = syDneyTime.split(',')[1].slice(4, 6) + '';
+      document.getElementById("time1").innerHTML = hr1 + ":" + min1;
+      document.getElementById("time2").innerHTML = hr2 + ":" + min2;
+      document.getElementById("time3").innerHTML = hr3 + ":" + min3;
+      document.getElementById("time4").innerHTML = hr4 + ":" + min4;
+      document.getElementById("time5").innerHTML = hr5 + ":" + min5;
+
+
+      if (hr1 >= 0 && hr1 < 6 || hr1 >= 18 && hr1 <= 23) {
+        document.getElementById('ny').style.backgroundColor = "black";
+        document.getElementById('ny').style.color = "white";
+      } else {
+        document.getElementById('ny').style.backgroundColor = "white";
+        document.getElementById('ny').style.color = "black";
+      }
+      if (hr2 >= 0 && hr2 < 6 || hr2 >= 18 && hr2 <= 23) {
+        document.getElementById('ld').style.backgroundColor = "black";
+        document.getElementById('ld').style.color = "white";
+      } else {
+        document.getElementById('ld').style.backgroundColor = "white";
+        document.getElementById('ld').style.color = "black";
+      }
+      if (hr3 >= 0 && hr3 < 6 || hr3 >= 18 && hr3 <= 23) {
+        document.getElementById('bk').style.backgroundColor = "black";
+        document.getElementById('bk').style.color = "white";
+      } else {
+        document.getElementById('bk').style.backgroundColor = "white";
+        document.getElementById('bk').style.color = "black";
+      }
+
+      if (hr4 >= 0 && hr4 < 6 || hr4 >= 18 && hr4 <= 23) {
+        document.getElementById('tw').style.backgroundColor = "black";
+        document.getElementById('tw').style.color = "white";
+      } else {
+        document.getElementById('tw').style.backgroundColor = "white";
+        document.getElementById('tw').style.color = "black";
+      }
+
+      if (hr5 >= 0 && hr5 < 6 || hr5 >= 18 && hr5 <= 23) {
+        document.getElementById('sn').style.backgroundColor = "black";
+        document.getElementById('sn').style.color = "white";
+      } else {
+        document.getElementById('sn').style.backgroundColor = "white";
+        document.getElementById('sn').style.color = "black";
+      }
+
+      var y1 = str1[0].slice(4, 9) + '';
+      var y2 = str2[0].slice(4, 9) + '';
+      var y3 = str3[0].slice(4, 9) + '';
+      var y4 = str4[0].slice(4, 9) + '';
+      var y5 = str5[0].slice(4, 9) + '';
+      var m1 = str1[0].slice(0, 1) + '';
+      var m2 = str2[0].slice(0, 1) + '';
+      var m3 = str3[0].slice(0, 1) + '';
+      var m4 = str4[0].slice(0, 1) + '';
+      var m5 = str5[0].slice(0, 1) + '';
+      var d1 = str1[0].slice(2, 4) + '';
+      var d2 = str2[0].slice(2, 4) + '';
+      var d3 = str3[0].slice(2, 4) + '';
+      var d4 = str4[0].slice(2, 4) + '';
+      var d5 = str5[0].slice(2, 4) + '';
+
+      document.getElementsByClassName("day1")[0].innerText = d1 + " " + monthEng[m1 - 1] + " ." + " " + y1;
+      document.getElementsByClassName("day2")[0].innerText = d2 + " " + monthEng[m2 - 1] + " ." + " " + y2;
+      document.getElementsByClassName("day3")[0].innerText = d3 + " " + monthEng[m3 - 1] + " ." + " " + y3;
+      document.getElementsByClassName("day4")[0].innerText = d4 + " " + monthEng[m4 - 1] + " ." + " " + y4;
+      document.getElementsByClassName("day5")[0].innerText = d5 + " " + monthEng[m5 - 1] + " ." + " " + y5;
+    }
+
+  </script>
+</body>
+
+</html>

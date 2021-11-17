@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="img/season/logo/logo反.png" type="image/x-icon">
+  <script src="font/jquery-3.4.1.js"></script>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>season</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    @font-face {
+      font-family: 'OldEnglishTextMT2';
+      src: url('font/OldEnglishTextMT2.woff') format("woff");
+    }
+    body {
+      background: #FFF;
+    }
+    /* media query */
+    @media (min-width: 600px) {
+      .header,
+      .item,
+      .footer {
+        width: 100%;
+      }
+    }
+
+    @media (min-width: 800px) {
+      .header {
+        width: 60%;
+      }
+      .item {
+        width: 73%;
+      }
+
+      .footer {
+        width: 34%;
+      }
+    }
+
+    body {
+      background-color: #cae1ee;
+    }
+
+    .container {
+      /* max-width: 1080px; */
+      margin: 0 auto;
+      display: flex;
+      flex-flow: row wrap;
+    }
+
+    .header,
+    .footer {
+      width: 100%;
+    }
+    .header {
+      border-bottom: 5px solid #5b8097;     
+    }
+    .item {
+      width: 100%;
+    }
+    .logo{
+      filter:brightness(0.9);
+      width: 10%;
+    }
+    .logomenu{
+      width: 4.5%;
+      float: right;
+      margin-top: 2.3%;
+      margin-right: 2%;
+    }
+    img{
+      width: 100%;
+    }
+    .footer {
+      background-color: #cae1ee;
+      text-align: center;
+      font-size: 20px;
+      height: 30%;
+      margin-top: 1%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <img class="logo" src="img/season/logo/logo-1.png" onclick="jumpfront()">
+      <img class="logomenu" src="img/season/logo/shopcar.png">
+    </div>
+    <div class="item">
+      <img src="img/season/season-bg1.jpg" alt="">
+      <div>
+        <table>會員登入
+          <tr><td> input </td></tr>
+          <tr><td></td></tr>
+          <tr><td></td></tr>
+          <tr><td></td></tr>
+          <tr><td></td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="footer">資料、圖片、文章來源皆來自網路，僅做為學習用途。</div>
+<script>
+  function jumpfront() {
+      window.location.href = "seasonFront.html";
+    }
+  function jumpmiddle() {
+      window.location.href = "seasonMiddle.html";
+    }
+
+</script>
+
+
+</body>
+
+</html>
