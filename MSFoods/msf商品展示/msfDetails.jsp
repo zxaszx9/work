@@ -159,7 +159,7 @@ padding-bottom: 3%;
          SELECT * from msfoods_items Where sell=1;
       </sql:query>
 	<header>
-		<img class="logo" src="img\fontimg.png">
+		<img class="logo" src="img\fontimg.png" onclick="jumpfront()">
 		<img class="logomenu" src="img\cart.png">
 	</header>
 	<nav>
@@ -288,6 +288,9 @@ String id=request.getParameter("id");
 	</footer>
 
 	<script>
+        function jumpfront() {
+          window.location.href = "msfFront.html";
+        }
 		$(function() {
 				var $showImg = $('.showimg');
 				$('.changeimg a').mouseover(function(){

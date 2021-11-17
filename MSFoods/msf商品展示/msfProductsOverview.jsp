@@ -125,7 +125,7 @@ padding-bottom: 3%;
       </sql:query>
 	<header>
 		<img class="ham" src="img\ham0.png">
-		<img class="logo" src="img\fontimg.png">
+		<img class="logo" src="img\fontimg.png" onclick="jumpfront()">
 		<img class="logomenu" src="img\cart.png">
 	</header>
 	<nav>
@@ -442,6 +442,9 @@ padding-bottom: 3%;
 	</footer>
 
 	<script>
+      function jumpfront() {
+        window.location.href = "msfFront.html";
+      }
 		$(function() {
 			$('.ham').mouseenter(
 					function() {

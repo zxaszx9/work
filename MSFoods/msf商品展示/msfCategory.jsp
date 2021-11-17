@@ -117,7 +117,7 @@ padding-bottom: 3%;
          SELECT * from msfoods_items Where sell=1;
       </sql:query>
 	<header>
-		<img class="logo" src="img\fontimg.png">
+		<img class="logo" src="img\fontimg.png" onclick="jumpfront()">
 		<img class="logomenu" src="img\cart.png">
 	</header>
 	<nav>
@@ -444,9 +444,9 @@ String c1=request.getParameter("c1");
 	</footer>
 
 	<script>
-		$(function() {
-
-		});
+    function jumpfront() {
+        window.location.href = "msfFront.html";
+      }
 	</script>
 </body>
 </html>

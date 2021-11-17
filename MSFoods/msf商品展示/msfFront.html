@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js" />
+<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+<script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+<link rel="stylesheet"
+	href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+<meta charset="UTF-8">
+<link rel="icon" href="img/season/logo/logo反.png" type="image/x-icon">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>msfoods</title>
+<style>
+/* media query */
+@media ( min-width : 600px) {
+	nav, main {
+		width: 50%;
+	}
+}
+
+@media ( min-width : 800px) {
+	header {
+		width: 100%;
+	}
+	nav {
+		width: 20%;
+	}
+	main {
+		width: 80%;
+	}
+	footer {
+		width: 100%;
+	}
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: white;
+	max-width: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+nav, main, footer {
+	width: 100%;
+}
+
+header {
+	width: 100%;
+	border-bottom: 5px solid #99DE99;
+}
+
+.logomanager {
+	width: 3%;
+	margin-bottom: 3%;
+	margin-left: 2%;
+}
+
+.logo {
+	margin: 1.2%;
+	width: 10%;
+	margin-left: 39%;
+}
+
+.detialsmenu {
+	width: 2.5%;
+	margin-left: 33%;
+	margin-bottom: 3%;
+}
+
+.logomenu {
+	width: 2.5%;
+	margin-left: 3%;
+	margin-bottom: 3%;
+}
+
+h1 {
+	margin-left: 38%;
+	color: #0c8539;
+}
+
+.frontimg {
+	margin-left: 2%;
+}
+
+span {
+	margin-left: 46%;
+	color: #0c8539;
+	font-size: 35px;
+	font-weight: bold;
+}
+
+p {
+	display: inline;
+}
+
+.ladiv, .nadiv {
+	font-size: 25px;
+	font-weight: bold;
+	display: none;
+	color: #99DE99;
+	margin-left: 18%;
+}
+
+h2 {
+	margin-left: 40%;
+}
+
+ul {
+	font-size: 20px;
+	margin-left: 30%;
+}
+
+footer {
+	background-image: url("img/about1.png");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 5%;
+	background-color: rgba(0, 0, 0, 0.1);
+	background-blend-mode: multiply;
+}
+
+.logoEnd {
+	width: 15%;
+	margin-left: 10%;
+	padding-top: 3%;
+}
+
+.footItems {
+	float: right;
+	color: white;
+	font-size: 20px;
+	margin-right: 10%;
+	padding-top: 3%;
+}
+
+.footCopyright {
+	margin-left: 38%;
+	font-size: 15px;
+	color: white;
+	display: block;
+	padding-bottom: 3%;
+}
+</style>
+</head>
+<body>
+	<header>
+		<img class="logomanager" src="img\manager.png" onclick="msfmanage()">
+		<img class="logo" src="img\fontimg.png"> <img
+			class="detialsmenu" src="img\menu.png" onclick="jumpmenu()"> <img
+			class="logomenu" src="img\cart.png">
+	</header>
+	<nav></nav>
+	<main>
+		<h1>自然 &nbsp; 隨和 &nbsp; 愛的生活</h1>
+		<img class="frontimg" src="img\frontimg1.png"><br>
+		<br> <span><p class="la">樂</p>
+			<p class="na">乃</p></span>
+		<div class="ladiv">
+			取自 LOHAS 樂活，是一種生活態度！Lifestyles of Health and Sustainability 的縮寫<br>
+			以此為宗旨，我們希望提供兼具健康安全及永續經營的農產。
+		</div>
+		<div class="nadiv">
+			取自第二代經營者名字中的「乃」字，象徵傳承二代後的創新變革，<br>
+			我們深耕農產50多年，集結一群默默為台灣食品付出的生產者，一路腳踏實地為台灣的農業努力，<br>
+			如今不僅是知名品牌代工廠，更秉持這樣的精神擁有我們的自有品牌。
+		</div>
+		<h2>從源頭為你們把關品質</h2>
+		<ul>
+			<li>不定期訪廠稽核，品質管控，食安有保障</li>
+			<br>
+			<li>產品從外銷工廠到內銷市場，供應全台各大知名連鎖餐飲業</li>
+			<br>
+			<li>堅持產品的衛生、安全，符合政府法規</li>
+			<br>
+			<li>取得HACCP，保證加工系統流程的食品安全<br>(以預防的角度來生產最低危害風險的產品以供人類使用)
+			</li>
+		</ul>
+	</main>
+	<footer>
+		<img class="logoEnd" src="img\footimg.png">
+		<div class="footItems">
+			<b>民生食品工業股份有限公司</b><br> Min Sheng Foods Industry Inc.<br>
+			彰化縣北斗鎮中山路二段519巷20號<br> Tel:04-8870991#17<br> Fax:04-8887505<br>
+		</div>
+		<span class="footCopyright">Copyright©2021 All Rights Reserved.</span>
+	</footer>
+
+	<script>
+		function jumpmenu() {
+			window.location.href = "msfProductsOverview.jsp";
+		}
+		function msfmanage() {
+			var manager = prompt("请输入管理員帳號", "");
+			if (manager == 123) {
+				   var managerpasswd = prompt("请输入管理員密碼", "");
+					if (managerpasswd == 123) {
+					 window.location.href = "msfManage.jsp";
+					} else {
+					   alert("輸入錯誤!");
+					}
+				} else {
+					alert("輸入錯誤!");
+				}
+		}
+	
+		$(function() {
+			$('.la').on('click', function() {
+				$('.ladiv').css('display', "block");
+				$('.nadiv').css('display', "none");
+			});
+			$('.na').on('click', function() {
+				$('.nadiv').css('display', "block");
+				$('.ladiv').css('display', "none");
+			});
+
+			function random() {
+				return Math.floor(Math.random() * 4 + 1);
+			}
+			setInterval(function() {
+				$("footer").css("background-image",
+						"url(img/about" + random() + ".png)");
+			}, 2000);
+		});
+	</script>
+</body>
+</html>
